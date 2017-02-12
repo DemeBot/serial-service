@@ -31,7 +31,8 @@ export class SerialPortConnections {
     }
 
     public write = ( data ) => {
-        this.port.write(data);
+        console.log( "[ PORT WRITE ] - data: " + data );
+        this.port.write( data + "\n" );
     }
 
     private portOpened = () => {
