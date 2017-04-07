@@ -41,10 +41,29 @@ export class SerialPortConnections {
 
     private portClosed = () => {
         console.log( "[ PORT CLOSED ] - name:" + this.COM_NAME );
+        new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                console.log("Exiting Process");
+                process.exit(1);
+                resolve();
+            }, 1000);
+        }).then(function () {
+            console.log("Promise succeeded");
+        });
+
     }
 
     private portError = ( error ) => {
         console.log("[ PORT ERRORED ] - message: " + error);
+        new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                console.log("Exiting Process");
+                process.exit(1);
+                resolve();
+            }, 1000);
+        }).then(function () {
+            console.log("Promise succeeded");
+        });
     }
 
     private portData = ( data ) => {

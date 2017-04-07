@@ -4,7 +4,7 @@
   "description": "Service which creates a websocket server and acts as a passthrough to a serial device.",
   "main": "index.js",
   "scripts": {
-    "start": "gulp",
+    "start": "forever start node_modules/gulp/bin/gulp.js",
     "test": "gulp tslint && mocha --reporter spec --compilers ts:ts-node/register src/**/*.spec.ts",
     "test-jenkins": "JUNIT_REPORT_PATH=report.xml mocha --colors --reporter mocha-jenkins-reporter --compilers ts:ts-node/register src/**/*.spec.ts",
     "apidoc": "apidoc -i src/ -o .dist/apidoc/",
@@ -53,6 +53,7 @@
     "body-parser": "^1.15.2",
     "debug": "^2.6.0",
     "express": "^4.14.0",
+    "forever": "^0.15.3",
     "gulp": "^3.9.1",
     "morgan": "^1.7.0",
     "rxjs": "^5.0.3",

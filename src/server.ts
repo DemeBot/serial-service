@@ -74,7 +74,17 @@ function handleClientDisconnect( client: any ) {
 }
 
 function broadcast( data ) {
-    for ( let connection in connections ) {
-        connections[ connection ].send( data );
+    for (let connection in connections) {
+        try
+        {
+            connections[connection].send(data);
+        }
+        catch ( Error ) {
+            let position = connections.indexOf( connection );
+            connections.splice( position, 1 );
+            console.error(Error);
+        }
+        finally {
+        }
     }
 }
